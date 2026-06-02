@@ -6,6 +6,7 @@ import sqlite3
 from datetime import date, timedelta
 from werkzeug.security import generate_password_hash, check_password_hash
 import math
+import os
 
 app = Flask(__name__)
 
@@ -124,7 +125,6 @@ def login():
         conn.close()
 
         if admin and check_password_hash(admin["password"], password):
-            # Start the 30-minute timer for Admin!
             session.permanent = True 
             session["admin_id"] = admin["id"]
             session["username"] = admin["username"]
@@ -270,7 +270,6 @@ def student_login():
         conn.close()
 
         if student and check_password_hash(student["password"], password):
-            # Start the 30-minute timer for Student!
             session.permanent = True 
             session["student_id"] = student["student_id"] 
             session["student_username"] = student["username"]
@@ -356,11 +355,12 @@ def attendance():
 
 @app.route("/student-logout")
 def student_logout():
-    session.clear() # Clears everything safely
+    session.clear() 
     flash("Student logged out.", "info")
     return redirect(url_for("student_login"))
 
 
 if __name__ == "__main__":
     create_database()
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
