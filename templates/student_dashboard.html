@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="p-5 text-white bg-dark rounded-3 shadow">
+            <h1 class="fw-bold">Hello, {{ profile.name }}!</h1>
+            <p class="lead">Welcome to your student portal. Always keep track of your attendance.</p>
+            <a href="{{ url_for('attendance') }}" class="btn btn-success btn-lg mt-2">Mark Attendance Today</a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-white fw-bold py-3">
+                My Academic Profile
+            </div>
+            <div class="card-body">
+                <table class="table table-borderless">
+                    <tr>
+                        <td class="text-muted" width="150">Registration ID</td>
+                        <td class="fw-bold">{{ profile.student_id }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-muted">Enrolled Course</td>
+                        <td class="fw-bold">{{ profile.course }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-muted">Current Semester</td>
+                        <td class="fw-bold">Semester {{ profile.semester }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-muted">Email Address</td>
+                        <td class="fw-bold">{{ profile.email }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm bg-info text-white h-100">
+            <div class="card-body d-flex flex-column justify-content-center align-items-center py-5">
+                <h1 class="display-3 fw-bold">{{ total_present }}</h1>
+                <h5>Days Present</h5>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

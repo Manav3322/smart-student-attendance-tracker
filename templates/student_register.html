@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row justify-content-center mt-4">
+    <div class="col-md-6">
+        <div class="card shadow border-0">
+            <div class="card-header bg-success text-white py-3">
+                <h4 class="mb-0">Create Student Account</h4>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST" action="{{ url_for('student_register') }}">
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Student ID</label>
+                            <input type="text" class="form-control" name="student_id" required placeholder="e.g. BCA001">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Full Name</label>
+                            <input type="text" class="form-control" name="name" required placeholder="MANAV">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Course</label>
+                            <input type="text" class="form-control" name="course" required placeholder="e.g. BCA">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Semester</label>
+                            <input type="number" class="form-control" name="semester" min="1" max="8" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Email Address</label>
+                        <input type="email" class="form-control" name="email" required placeholder="student@college.edu">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Create Password</label>
+                        <input type="password" class="form-control" name="password" required placeholder="Make it secure">
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-success btn-lg">Register & Create Account</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-center py-3">
+                Already have an account? <a href="{{ url_for('student_login') }}" class="text-success fw-bold">Login here</a>.
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

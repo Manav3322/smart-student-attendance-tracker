@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5">
+        <div class="card shadow border-0">
+            <div class="card-header bg-success text-white text-center py-3">
+                <h4 class="mb-0">Student Portal</h4>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST" action="">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Student ID</label>
+                        <input type="text" class="form-control" name="student_id" required placeholder="e.g. BCA001">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Password</label>
+                        <input type="password" class="form-control" name="password" required placeholder="Enter your password">
+                    </div>
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-success btn-lg">Login to Portal</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-center py-3 bg-light">
+                <p class="mb-2">New student? <a href="{{ url_for('student_register') }}" class="text-success fw-bold text-decoration-none">Create an Account</a></p>
+                <small class="text-muted">Admin user? <a href="{{ url_for('login') }}" class="text-secondary">Login here</a>.</small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
