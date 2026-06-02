@@ -10,6 +10,7 @@ import os
 
 app = Flask(__name__)
 
+
 # ==========================================
 # APP CONFIGURATION & SESSION SECURITY
 # ==========================================
@@ -360,7 +361,9 @@ def student_logout():
     return redirect(url_for("student_login"))
 
 
+# Create database when app loads
+create_database()
+
 if __name__ == "__main__":
-    create_database()
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
