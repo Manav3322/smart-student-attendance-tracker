@@ -1,4 +1,4 @@
-# Student Attendance Management System
+# Ssmart-student-attendance-tracker
 
 ## Project Overview
 
