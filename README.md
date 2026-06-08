@@ -1,4 +1,4 @@
-# Ssmart-student-attendance-tracker
+# Smart-student-attendance-tracker
 
 ## Project Overview
 
